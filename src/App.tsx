@@ -1,10 +1,15 @@
 import "./App.css";
+import Carousel from "./layouts/HomePage/Carousel";
+import ExploreTopBooks from "./layouts/HomePage/ExploreTopBooks";
+import Navbar from "./layouts/NavbarAndFooter/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Our Library Web app</h1>
-    </div>
+    <>
+      <Navbar />
+      <ExploreTopBooks />
+      <Carousel />
+    </>
   );
 }
 

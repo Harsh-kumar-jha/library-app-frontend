@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import ReturnBook from "./ReturnBook";
 import BookModel from "../../../models/BookModels";
 import Spinner from "../../utils/Spinner";
+import ErrorMessage from "../../utils/ErrorMessages";
 
 const Carousel = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [httpError, setHttpError] = useState(null);
-
   useEffect(() => {
     const fetchBook = async () => {
       // const url: string = `${process.env.BASE_URL}?page=0&size=9`;
@@ -28,7 +28,7 @@ const Carousel = () => {
           id: responseData[key].id,
           title: responseData[key].title,
           author: responseData[key].author,
-          descriptions: responseData[key].descriptions,
+          description: responseData[key].description,
           copies: responseData[key].copies,
           copiesAvailable: responseData[key].copiesAvailable,
           category: responseData[key].category,
@@ -55,7 +55,7 @@ const Carousel = () => {
   if (httpError) {
     return (
       <div className="container m-5">
-        <p>{httpError}</p>
+        <ErrorMessage message={httpError} />
       </div>
     );
   }

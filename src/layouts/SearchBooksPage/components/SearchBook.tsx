@@ -1,5 +1,6 @@
 import React from "react";
 import BookModel from "../../../models/BookModels";
+import { Link } from "react-router-dom";
 
 const SearchBook: React.FC<{ book: BookModel }> = ({ book }) => {
   return (
@@ -38,9 +39,12 @@ const SearchBook: React.FC<{ book: BookModel }> = ({ book }) => {
             <p className="card-text">{book.description}</p>
           </div>
           <div className="col-md-4 d-flex justify-content-center align-items-center">
-            <a className="btn btn-md main-color text-white" href="#">
+            <Link
+              className="btn btn-md main-color text-white"
+              to={`/checkout/${book.id}`}
+            >
               View Details
-            </a>
+            </Link>
           </div>
         </div>
       </div>
